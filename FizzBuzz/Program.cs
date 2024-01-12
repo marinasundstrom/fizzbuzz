@@ -3,5 +3,5 @@
 // INFO: I have extended Range to have an enumerator.
 foreach (var no in 1..100)
 {
-    WriteLine(FizzBuzzer.Fizz(no));
+    WriteLine(FizzBuzzer.FizzOrBuzz(no));
 }

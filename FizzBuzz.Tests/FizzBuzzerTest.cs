@@ -16,7 +16,7 @@ public class FizzBuzzerTest
         // Arrange
 
         // Act
-        var result = FizzBuzzer.Fizz(no);
+        var result = FizzBuzzer.FizzOrBuzz(no);
 
         // Assert
         Assert.Equal(Fizz, result);
@@ -30,7 +30,7 @@ public class FizzBuzzerTest
         // Arrange
 
         // Act
-        var result = FizzBuzzer.Fizz(no);
+        var result = FizzBuzzer.FizzOrBuzz(no);
 
         // Assert
         Assert.Equal(Buzz, result);
@@ -43,7 +43,7 @@ public class FizzBuzzerTest
         // Arrange
 
         // Act
-        var result = FizzBuzzer.Fizz(no);
+        var result = FizzBuzzer.FizzOrBuzz(no);
 
         // Assert
         Assert.Equal(FizzBuzz, result);
@@ -55,7 +55,7 @@ public class FizzBuzzerTest
         // Arrange
 
         // Act
-        var result = FizzBuzzer.Fizz(15);
+        var result = FizzBuzzer.FizzOrBuzz(15);
 
         // Assert
         Assert.Equal(FizzBuzz, result);
@@ -70,7 +70,7 @@ public class FizzBuzzerTest
         // Act
         var result = Enumerable.Range(1, 100)
             .Where(multiplesOf3Only)
-            .Select(FizzBuzzer.Fizz);
+            .Select(FizzBuzzer.FizzOrBuzz);
 
         // Assert
         Assert.True(result.All(x => x == Fizz));
@@ -85,7 +85,7 @@ public class FizzBuzzerTest
         // Act
         var result = Enumerable.Range(1, 100)
             .Where(multiplesOf5Only)
-            .Select(FizzBuzzer.Fizz);
+            .Select(FizzBuzzer.FizzOrBuzz);
 
         // Assert
         Assert.True(result.All(x => x == Buzz));
@@ -100,7 +100,7 @@ public class FizzBuzzerTest
         // Act
         var result = Enumerable.Range(1, 100)
             .Where(multiplesOfBoth3And5)
-            .Select(FizzBuzzer.Fizz);
+            .Select(FizzBuzzer.FizzOrBuzz);
 
         // Assert
         Assert.True(result.All(x => x == FizzBuzz));

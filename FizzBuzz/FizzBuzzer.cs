@@ -3,7 +3,7 @@ using System.Text;
 
 public static class FizzBuzzer
 {
-    public static string Fizz(int no)
+    public static string FizzOrBuzz(int no)
     {
         StringBuilder sb = new();
 
