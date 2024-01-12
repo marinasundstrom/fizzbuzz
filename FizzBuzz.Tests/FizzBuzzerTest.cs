@@ -2,28 +2,51 @@ namespace FizzBuzz.Tests;
 
 public class FizzBuzzerTest
 {
-    [Fact]
-    public void MultipleOf3ShouldYieldFizz()
+    const string Fizz = nameof(Fizz);
+    const string Buzz = nameof(Buzz);
+    const string FizzBuzz = nameof(FizzBuzz);
+
+    [Theory]
+    [InlineData(3)]
+    [InlineData(6)]
+    [InlineData(9)]
+    [InlineData(12)]
+    public void KnownMultipleOf3ShouldYieldFizz(int no)
     {
         // Arrange
 
         // Act
-        var result = FizzBuzzer.Fizz(3);
+        var result = FizzBuzzer.Fizz(no);
 
         // Assert
-        Assert.Equal("Fizz", result);
+        Assert.Equal(Fizz, result);
     }
 
-    [Fact]
-    public void MultipleOf5ShouldYieldBuzz()
+    [Theory(DisplayName = "Known number {0} is a multiple of 5 and should yield Buzz")]
+    [InlineData(5)]
+    [InlineData(10)]
+    public void KnownMultipleOf5ShouldYieldBuzz(int no)
     {
         // Arrange
 
         // Act
-        var result = FizzBuzzer.Fizz(10);
+        var result = FizzBuzzer.Fizz(no);
 
         // Assert
-        Assert.Equal("Buzz", result);
+        Assert.Equal(Buzz, result);
+    }
+
+    [Theory]
+    [InlineData(15)]
+    public void KnownMultipleOfBoth3AndFiveShouldYieldFizzBuzz(int no)
+    {
+        // Arrange
+
+        // Act
+        var result = FizzBuzzer.Fizz(no);
+
+        // Assert
+        Assert.Equal(FizzBuzz, result);
     }
 
     [Fact]
@@ -35,7 +58,7 @@ public class FizzBuzzerTest
         var result = FizzBuzzer.Fizz(15);
 
         // Assert
-        Assert.Equal("FizzBuzz", result);
+        Assert.Equal(FizzBuzz, result);
     }
 
     [Fact]
@@ -50,7 +73,7 @@ public class FizzBuzzerTest
             .Select(FizzBuzzer.Fizz);
 
         // Assert
-        Assert.True(result.All(x => x == "Fizz"));
+        Assert.True(result.All(x => x == Fizz));
     }
 
     [Fact]
@@ -65,7 +88,7 @@ public class FizzBuzzerTest
             .Select(FizzBuzzer.Fizz);
 
         // Assert
-        Assert.True(result.All(x => x == "Buzz"));
+        Assert.True(result.All(x => x == Buzz));
     }
 
     [Fact]
@@ -80,6 +103,6 @@ public class FizzBuzzerTest
             .Select(FizzBuzzer.Fizz);
 
         // Assert
-        Assert.True(result.All(x => x == "FizzBuzz"));
+        Assert.True(result.All(x => x == FizzBuzz));
     }
 }
